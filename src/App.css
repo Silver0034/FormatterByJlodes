@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
+html,
+body {
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color: #fafafa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+label {
+	font-weight: 600;
+	color: #004c4c;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input,
+select,
+textarea {
+	width: 100%;
+	background-color: #fafafa;
+	border: 1px solid lightgray;
+	outline: none;
+	border-radius: 0.25rem;
+	padding: 0.5em;
+	box-sizing: border-box;
+}
+input:hover,
+input:focus,
+select:hover,
+select:focus,
+textarea:hover,
+textarea:focus {
+	border-color: #00c3c3;
+}
+textarea {
+	resize: vertical;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (max-height: 650px) {
+	textarea {
+		min-height: 6em;
+		max-height: 310px;
+	}
+}
+@media (min-height: 651px) {
+	.actions {
+		min-height: calc(calc(100vh - 6.5em) - 1px);
+	}
+	textarea {
+		min-height: 12em;
+	}
 }
 
-.App-link {
-  color: #61dafb;
+input,
+select,
+textarea,
+button {
+	cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header .wrap,
+.buttons .wrap {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	padding: 1em;
+}
+
+header {
+	box-sizing: border-box;
+	border-bottom: 1px solid lightgray;
+}
+header .wrap {
+	height: 4.5em;
+}
+header strong {
+	font-size: 1.5em;
+}
+header a {
+	color: #004c4c;
+	font-weight: 600;
+	margin-left: auto;
+}
+
+.buttons {
+	position: sticky;
+	top: calc(100% - 4.5em);
+	box-sizing: border-box;
+	background-color: #004c4c;
+}
+.buttons .wrap {
+	height: 3em;
+}
+.buttons button {
+	font-weight: 600;
+	padding: 0.5em 1em;
+	border-radius: 0.25em;
+	border: 1px solid #004c4c;
+}
+.buttons .format {
+	color: #004c4c;
+	background-color: #f1f1f1;
+}
+.buttons .copy,
+.buttons .clear {
+	background: none;
+	color: #f1f1f1;
+}
+.buttons .clear {
+	margin-left: auto;
+}
+.buttons button:hover,
+.buttons button:focus {
+	border-color: #f1f1f1;
+	color: #f1f1f1;
+	background-color: #004c4c;
+}
+
+.selector {
+	padding: 1em;
+}
+.selector select {
+	margin-bottom: 1em;
+}
+
+.wrap {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+#errors {
+	margin: 0;
+	color: #f54242;
+	padding-top: 0.5em;
 }
