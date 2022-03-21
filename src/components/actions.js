@@ -171,10 +171,12 @@ class Actions extends React.Component {
 		document.querySelector('#errors').innerHTML = ''
 	}
 
-	changeType() {
+	changeType(e) {
 		const textarea = document.querySelector('#textarea')
 		const key = document.querySelector('#selector').value
 		textarea.setAttribute('placeholder', this.formats[key]?.placeholder)
+
+		e.target.getAttribute('data-value')
 
 		document.querySelector('#errors').innerHTML = ''
 
@@ -189,8 +191,20 @@ class Actions extends React.Component {
 				})
 			}
 		}, 1000)
+	}
 
-		textarea.focus()
+	changeFocus(e) {
+		const select = e.target
+		const textarea = document.querySelector('#textarea')
+
+		if (
+			select.getAttribute('data-value') !== null &&
+			select.getAttribute('data-value') !== select.value
+		) {
+			textarea.focus()
+		}
+
+		select.setAttribute('data-value', select.value)
 	}
 
 	setTextareaHeight() {
@@ -245,7 +259,11 @@ class Actions extends React.Component {
 							<path d='M18 19H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h5c.55 0 1-.45 1-1s-.45-1-1-1H5c-1.11 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6c0-.55-.45-1-1-1s-1 .45-1 1v5c0 .55-.45 1-1 1zM14 4c0 .55.45 1 1 1h2.59l-9.13 9.13c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L19 6.41V9c0 .55.45 1 1 1s1-.45 1-1V4c0-.55-.45-1-1-1h-5c-.55 0-1 .45-1 1z' />
 						</svg>
 					</a>
-					<select id='selector' onChange={this.changeType}>
+					<select
+						id='selector'
+						onChange={this.changeType}
+						onClick={this.changeFocus}
+					>
 						{this.returnDropdownOptions()}
 					</select>
 					<textarea
