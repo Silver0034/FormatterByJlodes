@@ -173,7 +173,6 @@ class Actions extends React.Component {
 
 	changeType() {
 		const textarea = document.querySelector('#textarea')
-		textarea.value = ''
 		const key = document.querySelector('#selector').value
 		textarea.setAttribute('placeholder', this.formats[key]?.placeholder)
 
