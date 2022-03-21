@@ -6,8 +6,24 @@ body {
 }
 
 label {
+	float: left;
 	font-weight: 600;
 	color: #004c4c;
+}
+
+#openAsTab {
+	float: right;
+	display: flex;
+	background: none;
+	color: #00c3c3;
+	padding: 0.25em;
+	border-radius: 0.25em;
+	border: 1px solid transparent;
+}
+#openAsTab:focus,
+#openAsTab:hover {
+	color: #004c4c;
+	border-color: #004c4c;
 }
 
 input,
@@ -39,12 +55,30 @@ textarea {
 		max-height: 310px;
 	}
 }
-@media (min-height: 651px) {
+@media (min-height: 651px) and (max-height: 999px) {
 	.actions {
 		min-height: calc(calc(100vh - 6.5em) - 1px);
 	}
 	textarea {
 		min-height: 12em;
+	}
+}
+@media (min-height: 1000px) {
+	.buttons {
+		position: relative;
+	}
+	textarea {
+		min-height: 20em;
+	}
+}
+@media (min-height: 1000px) and (min-width: 800px) {
+	.buttons {
+		max-width: 800px;
+		border-radius: 0.55rem;
+		margin: 0 auto;
+	}
+	textarea {
+		min-height: 20em;
 	}
 }
 

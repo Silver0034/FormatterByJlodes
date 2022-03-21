@@ -5,7 +5,7 @@
 	"manifest_version": 3,
 	"action": {
 		"default_popup": "index.html",
-		"default_title": "Open the formatter"
+		"default_title": "Formatter by jlodes"
 	},
 	"start_url": "../",
 	"display": "standalone",
@@ -14,5 +14,22 @@
 		"48": "128.png",
 		"128": "128.png"
 	},
-	"permissions": ["storage"]
+	"commands": {
+		"open-as-tab": {
+			"suggested_key": {
+				"default": "Alt+Shift+F"
+			},
+			"description": "Open as a new tab"
+		},
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+F",
+				"mac": "Command+Shift+F"
+			}
+		}
+	},
+	"permissions": ["storage", "tabs"],
+	"background": {
+		"service_worker": "./background.js"
+	}
 }
