@@ -188,7 +188,7 @@ class Actions extends React.Component {
 					selectKey: key
 				})
 			}
-		}, 2000)
+		}, 1000)
 
 		textarea.focus()
 	}
@@ -217,7 +217,7 @@ class Actions extends React.Component {
 				})
 				return false
 			}
-		}, 2000)
+		}, 1000)
 	}
 
 	render() {
