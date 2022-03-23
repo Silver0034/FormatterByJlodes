@@ -28,7 +28,7 @@
 			}
 		}
 	},
-	"permissions": ["storage", "tabs"],
+	"permissions": ["storage"],
 	"background": {
 		"service_worker": "./background.js"
 	}
